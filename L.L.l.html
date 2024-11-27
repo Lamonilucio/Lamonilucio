@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Futebol - Abas Interativas</title>
+    <style>
+        /* Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #1E90FF;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #FFD700;
+            padding: 0.5rem 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #1E90FF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 1rem;
+        }
+
+        section {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        section img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .tab-button {
+            background-color: #1E90FF;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            margin: 0 5px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .tab-button.active {
+            background-color: #FFD700;
+            color: #1E90FF;
+        }
+
+        .sub-tabs {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .sub-tab-button {
+            background-color: #FFD700;
+            color: #1E90FF;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            margin: 5px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            width: 50%;
+        }
+
+        .sub-tab-button:hover {
+            background-color: #FF4500;
+            color: white;
+        }
+
+        .sub-tabs.active {
+            display: flex;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #1E90FF;
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Portal Futebol ⚽</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#noticias" onclick="showMainTab(event, 'noticias')">Notícias</a></li>
+            <li><a href="#times" onclick="showMainTab(event, 'times')">Times</a></li>
+            <li><a href="#contato" onclick="showMainTab(event, 'contato')">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Notícias -->
+        <section id="noticias" class="content active">
+            <h2>Últimas Notícias</h2>
+            <p>Confira as novidades do mundo do futebol!</p>
+            <img src="https://via.placeholder.com/800x400?text=Notícias+do+Futebol" alt="Notícias de Futebol">
+        </section>
+
+        <!-- Times -->
+        <section id="times" class="content">
+            <h2>Informações sobre os Times</h2>
+            <div class="tabs">
+                <button class="tab-button" onclick="showSubTab(event, 'time1')">Futebol Clube Aurora</button>
+                <button class="tab-button" onclick="showSubTab(event, 'time2')">Estrela do Norte FC</button>
+                <button class="tab-button" onclick="showSubTab(event, 'time3')">Atlético Solar</button>
+            </div>
+            <div id="time1" class="sub-tabs">
+                <button class="sub-tab-button" onclick="showContent(event, 'time1-historia')">História</button>
+                <button class="sub-tab-button" onclick="showContent(event, 'time1-titulos')">Títulos</button>
+            </div>
+            <div id="time2" class="sub-tabs">
+                <button class="sub-tab-button" onclick="showContent(event, 'time2-historia')">História</button>
+                <button class="sub-tab-button" onclick="showContent(event, 'time2-titulos')">Títulos</button>
+            </div>
+            <div id="time3" class="sub-tabs">
+                <button class="sub-tab-button" onclick="showContent(event, 'time3-historia')">História</button>
+                <button class="sub-tab-button" onclick="showContent(event, 'time3-titulos')">Títulos</button>
+            </div>
+        </section>
+
+        <!-- Sub-Abas -->
+        <section id="time1-historia" class="content">
+            <h3>História do Futebol Clube Aurora</h3>
+            <p>Fundado em 1920, o Futebol Clube Aurora é conhecido por sua rica tradição no futebol.</p>
+            <img src="https://via.placeholder.com/800x400?text=Futebol+Clube+Aurora" alt="Futebol Clube Aurora">
+        </section>
+        <section id="time1-titulos" class="content">
+            <h3>Títulos do Futebol Clube Aurora</h3>
+            <p>10 Campeonatos Nacionais, 2 Libertadores e diversos títulos regionais.</p>
+        </section>
+        <section id="time2-historia" class="content">
+            <h3>História do Estrela do Norte FC</h3>
+            <p>Fundado em 1975, é famoso por sua torcida apaixonada.</p>
+            <img src="https://via.placeholder.com/800x400?text=Estrela+do+Norte+FC" alt="Estrela do Norte FC">
+        </section>
+        <section id="time2-titulos" class="content">
+            <h3>Títulos do Estrela do Norte FC</h3>
+            <p>5 Copas Nacionais e 1 Mundial de Clubes.</p>
+        </section>
+        <section id="time3-historia" class="content">
+            <h3>História do Atlético Solar</h3>
+            <p>Fundado em 1990, o Atlético Solar ganhou destaque por revelar jovens talentos.</p>
+            <img src="https://via.placeholder.com/800x400?text=Atlético+Solar" alt="Atlético Solar">
+        </section>
+        <section id="time3-titulos" class="content">
+            <h3>Títulos do Atlético Solar</h3>
+            <p>8 Campeonatos Regionais e 3 Copas Continentais.</p>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato" class="content">
+            <h2>Contato</h2>
+            <p>Envie-nos suas dúvidas ou sugestões!</p>
+            <img src="https://via.placeholder.com/800x400?text=Contato" alt="Contato">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Portal Futebol. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Controle de Abas Principais
+        function showMainTab(event, tabName) {
+            event.preventDefault();
+            document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        // Controle de Sub-Abas
+        function showSubTab(event, subTabName) {
+            document.querySelectorAll('.sub-tabs').forEach(el => el.classList.remove('active'));
+            document.getElementById(subTabName).classList.add('active');
+        }
+
+        // Controle de Conteúdo das Sub-Abas
+        function showContent(event, contentName) {
+            document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+            document.getElementById(contentName).classList.add('active');
+        }
+    </script>
+</body>
+</html>
